@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hariprasanth | Portfolio</title>
+
+  <!-- External Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* General (iOS Style) */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Poppins', sans-serif;
+      color: #1c1c1e;
+      background: linear-gradient(135deg, #f9fafc, #eef1f7);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h5 {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* iOS Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .navbar .nav-link {
+      font-weight: 500;
+      color: #1c1c1e;
+      transition: 0.3s ease;
+    }
+
+    .navbar .nav-link:hover {
+      color: #007aff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at top, #dfe8ff 0%, #f9fafe 60%);
+      color: #111;
+      padding: 20px;
+    }
+
+    .profile-img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.8);
+      margin-bottom: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: #1c1c1e;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #6e6e73;
+    }
+
+    .btn-custom {
+      border-radius: 20px;
+      padding: 10px 24px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .btn-outline-light {
+      background: rgba(255, 255, 255, 0.3);
+      color: #007aff;
+      border: 1px solid rgba(0, 122, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline-light:hover {
+      background: #007aff;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,122,255,0.3);
+    }
+
+    /* Section Base */
+    .section {
+      padding: 90px 0;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2rem;
+      color: #007aff;
+    }
+
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #007aff;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Glass Cards */
+    .card {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      border-radius: 22px;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    }
+
+    /* Progress Bars */
+    .progress {
+      height: 12px;
+      border-radius: 10px;
+      background: #e5e5ea;
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #007aff, #00c6ff);
+      font-weight: 500;
+    }
+
+    /* Gradient Section */
+    .gradient-section {
+      background: linear-gradient(135deg, #007aff, #00c6ff);
+      color: #fff;
+      box-shadow: inset 0 0 30px rgba(255,255,255,0.15);
+    }
+
+    /* Footer */
+    footer {
+      background: #f5f5f7;
+      color: #1c1c1e;
+      text-align: center;
+      padding: 25px 0;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    footer a {
+      color: #007aff;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: #0056d6;
+    }
+
+    /* Inputs */
+    input, textarea {
+      border-radius: 14px !important;
+      border: 1px solid #e5e5ea !important;
+      padding: 10px 14px;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #007aff !important;
+      box-shadow: 0 0 0 3px rgba(0,122,255,0.2) !important;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0,122,255,0.4);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,122,255,0.6);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#home">Hariprasanth</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <img src="profile-img.jpg" alt="Hariprasanth" class="profile-img" data-aos="zoom-in">
+  <h1 data-aos="fade-up">Hariprasanth</h1>
+  <p data-aos="fade-up" data-aos-delay="200">Frontend Developer</p>
+  <div class="mt-3">
+    <a href="Hariprasanth_S .pdf" class="btn btn-outline-light btn-lg btn-custom me-2" download data-aos="zoom-in">
+      <i class="fa fa-download"></i> Resume
+    </a>
+    <a href="https://github.com/Hariprasanth2" target="_blank" class="btn btn-outline-light btn-lg btn-custom" data-aos="zoom-in" data-aos-delay="200">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="section">
+  <div class="container">
+    <h2 data-aos="fade-up">Skills</h2>
+    <div class="row text-center">
+      <div class="col-md-3 mb-4" data-aos="zoom-in">
+        <div class="card p-4">
+          <i class="fab fa-java fa-3x text-primary mb-3"></i>
+          <h5>Java</h5>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card p-4">
+          <i class="fab fa-python fa-3x text-warning mb-3"></i>
+          <h5>Python</h5>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card p-4">
+          <i class="fa-solid fa-database fa-3x text-success mb-3"></i>
+          <h5>SQL</h5>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card p-4">
+          <i class="fab fa-html5 fa-3x text-danger mb-3"></i>
+          <h5>HTML & CSS</h5>
+        </div>
+      </div>
+
+      <!-- New Row for Extra Skills -->
+      <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="400">
+        <div class="card p-4">
+          <i class="fab fa-github fa-3x text-dark mb-3"></i>
+          <h5>GitHub</h5>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="500">
+        <div class="card p-4">
+          <i class="fa-solid fa-leaf fa-3x text-success mb-3"></i>
+          <h5>Spring</h5>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="600">
+        <div class="card p-4">
+          <i class="fa-solid fa-file-excel fa-3x text-success mb-3"></i>
+          <h5>Excel</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education & Internship -->
+<section id="education" class="section bg-light">
+  <div class="container">
+    <h2 data-aos="fade-up">Education & Training</h2>
+
+    <div class="row">
+      <!-- Education 1 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm bg-white">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center rounded-circle"
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#7f00ff,#e100ff); color:white;">
+              <i class="fa-solid fa-graduation-cap fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">Oct 2021 - Apr 2025</h6>
+            <h5 class="fw-bold mb-1">B.E. Computer Science and Engineering</h5>
+            <p class="fw-semibold text-dark mb-1">PA College of Engineering and Technology, Pollachi</p>
+            <p class="text-muted mb-0">Gained strong foundation in programming, databases, and software development. Developed innovative projects using Java and Python.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internship 2 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm bg-white">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center rounded-circle"
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#7f00ff,#e100ff); color:white;">
+              <i class="fa-solid fa-network-wired fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">Jun 2025 - Nov 2025</h6>
+            <h5 class="fw-bold mb-1">Full Stack Java Developer</h5>
+            <p class="fw-semibold text-dark mb-1"> TAP Academy, Bangalore (6-Month Course)</p>
+            <p class="text-muted mb-0">Mastered Core Java, Advanced Java (JDBC, J2EE, Servlets), Spring, Hibernate, MySQL, And Frontend
+Development. Gained Hands-On Experience In OOP, Collections, Multithreading, Exception Handling, And
+Java 8 Features (Lambda Expressions, Stream API). Applied Skills In Multiple Projects, Including A Capstone
+Online Food Delivery Application, Showcasing Full-Stack Development From Database Integration To
+Responsive UI Design.
+</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 data-aos="fade-up">Projects</h2>
+
+    <div class="row">
+      <!-- Project 1 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm bg-white">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center rounded-circle"
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#007aff,#00c6ff); color:white;">
+              <i class="fa-solid fa-robot fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">Nov 2024 Apr 2025</h6>
+            <h5 class="fw-bold mb-1">Deepfake Face Detection using DCGAN</h5>
+            <p class="fw-semibold text-dark mb-1">Machine Learning Project</p>
+            <p class="text-muted mb-2">
+              Built a Deep Learning model using <b>DCGAN, CNN, and LSTM</b> to detect fake faces in images.  
+              Includes real-time predictions with a custom-built UI.
+            </p>
+            <a href="https://github.com/Hariprasanth2/Deepfake-Face-Detection-Using-Machine-Learning-With-DCGAN" 
+               target="_blank" 
+               class="btn btn-sm btn-outline-primary fw-bold" 
+               style="border-radius:20px;">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Project 1: Portfolio Website -->
+      <div class="col-md-12 mb-4" data-aos="fade-up">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm bg-white">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center rounded-circle"
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#007aff,#00c6ff); color:white;">
+              <i class="fa-solid fa-laptop-code fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">Aug 2025 Nov 2025</h6>
+            <h5 class="fw-bold mb-1">Personal Portfolio Website</h5>
+            <p class="fw-semibold text-dark mb-1">Frontend Development</p>
+            <p class="text-muted mb-2">
+              Created a responsive and animated portfolio website using <b>HTML, CSS, JavaScript, </b>.  
+              Designed a modern layout inspired by <b>Patrix Theme</b> to showcase skills, education, and projects.
+            </p>
+            <a href="https://hariprasanth2.github.io/Portfolio" 
+               target="_blank" 
+               class="btn btn-sm btn-outline-primary fw-bold" 
+               style="border-radius:20px;">
+              <i class="fa-solid fa-globe"></i> View Live
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm bg-white">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center rounded-circle"
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#007aff,#00c6ff); color:white;">
+              <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">Mar 2024</h6>
+            <h5 class="fw-bold mb-1">Online Fashion Store</h5>
+            <p class="fw-semibold text-dark mb-1">Full Stack Java Project</p>
+            <p class="text-muted mb-2">
+              Developed an <b>E-commerce application</b> using Java, Spring Boot, and MySQL.  
+              Includes authentication, product catalog, shopping cart, and admin panel.
+            </p>
+            <a href="https://github.com/Hariprasanth2/Male-Fashion-E-commerce" 
+               target="_blank" 
+               class="btn btn-sm btn-outline-primary fw-bold" 
+               style="border-radius:20px;">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center mt-4" data-aos="fade-up">
+      💡 More projects on 
+      <a href="https://github.com/Hariprasanth2?tab=repositories" target="_blank"><b>GitHub</b></a>
+    </p>
+  </div>
+</section>
+
+
+<!-- Certifications -->
+<section id="certifications" class="section bg-light">
+  <div class="container">
+    <h2 data-aos="fade-up">Certifications & Achievements</h2>
+
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm" style="background:white;">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center bg-gradient rounded-circle" 
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#7f00ff,#e100ff); color:#fff;">
+              <i class="fa-solid fa-certificate fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">2024</h6>
+            <h5 class="fw-bold mb-1">Java Programming</h5>
+            <p class="fw-semibold text-dark mb-1">Udemy</p>
+            <p class="text-muted mb-0">Completed hands-on Java course covering OOP, collections, and exception handling.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm" style="background:white;">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center bg-gradient rounded-circle" 
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#7f00ff,#e100ff); color:#fff;">
+              <i class="fa-solid fa-code fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">2024</h6>
+            <h5 class="fw-bold mb-1">Python Complete Course</h5>
+            <p class="fw-semibold text-dark mb-1">Udemy</p>
+            <p class="text-muted mb-0">Covered Python programming fundamentals and mini-projects for automation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm" style="background:white;">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center bg-gradient rounded-circle" 
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#7f00ff,#e100ff); color:#fff;">
+              <i class="fa-solid fa-database fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">2025</h6>
+            <h5 class="fw-bold mb-1">SQL</h5>
+            <p class="fw-semibold text-dark mb-1">HackerRank</p>
+            <p class="text-muted mb-0">Solved advanced SQL problems and earned verified certification.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm" style="background:white;">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center bg-gradient rounded-circle" 
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#7f00ff,#e100ff); color:#fff;">
+              <i class="fa-solid fa-trophy fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">2024</h6>
+            <h5 class="fw-bold mb-1">1st Place – Intra College Project</h5>
+            <p class="fw-semibold text-dark mb-1">PA College of Engineering & Technology</p>
+            <p class="text-muted mb-0">Awarded for best innovation in AI-based face detection project.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="d-flex align-items-start p-4 rounded-4 shadow-sm" style="background:white;">
+          <div class="me-3">
+            <div class="d-flex align-items-center justify-content-center bg-gradient rounded-circle" 
+                 style="width:55px; height:55px; background:linear-gradient(135deg,#7f00ff,#e100ff); color:#fff;">
+              <i class="fa-solid fa-file-lines fa-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h6 class="text-primary fw-bold mb-1">2025</h6>
+            <h5 class="fw-bold mb-1">Paper Presentation – Deepfake Detection</h5>
+            <p class="fw-semibold text-dark mb-1">TNSCST 2025</p>
+            <p class="text-muted mb-0">Presented research on “Deepfake Face Detection using DCGAN”.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact" class="section">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Contact Me</h2>
+    <p><i class="fa fa-envelope"></i> <a href="mailto:hariprasanth7oct@gmail.com">hariprasanth7oct@gmail.com</a></p>
+    <p><i class="fa fa-phone"></i> +91 9500641088</p>
+    <p><i class="fa fa-linkedin"></i> <a href="https://www.linkedin.com/in/hariprasanth--s/" target="_blank">linkedin.com/in/hariprasanth--s/</a></p>
+    <form onsubmit="event.preventDefault(); alert('Thanks Hari! I will get back to you soon.');" data-aos="zoom-in" class="mx-auto" style="max-width:500px;">
+      <div class="mb-3"><input type="text" class="form-control" placeholder="Your Name" required></div>
+      <div class="mb-3"><input type="email" class="form-control" placeholder="Email" required></div>
+      <div class="mb-3"><textarea class="form-control" rows="4" placeholder="Message" required></textarea></div>
+      <button class="btn btn-primary fw-bold" style="background:#007aff; border:none; border-radius:18px; padding:10px 25px;">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 <b>Hariprasanth</b></p>
+  <div>
+    <a href="mailto:hariprasanth7oct@gmail.com"><i class="fa fa-envelope"></i></a>
+    <a href="https://github.com/Hariprasanth2" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/hariprasanth--s/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>
