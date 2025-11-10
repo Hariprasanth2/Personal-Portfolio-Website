@@ -6,7 +6,7 @@ Designed to demonstrate my **Java Full Stack Development** skills with a clean a
 ---
 
 ## 🔗 Live Demo
-[👉 View Portfolio]([[https://your-username.github.io/your-repo](https://hariprasanth7-portfolio.netlify.app/](https://hariprasanth7-portfolio.netlify.app/))
+[👉 View Portfolio](https://hariprasanth7-portfolio.netlify.app/)
 
 ---
 
